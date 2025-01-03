@@ -1,9 +1,9 @@
 from django.db import models
-
+from django_extensions.db.fields import AutoSlugField
 
 class Radar(models.Model):
     label = models.CharField(max_length=20)
-    slug = models.SlugField(unique=True)
+    slug = AutoSlugField(populate_from='title')
 
     def __str__(self):
         return self.slug
