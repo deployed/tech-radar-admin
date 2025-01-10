@@ -1,0 +1,5 @@
+- model: radars.radar
+  pk: 1
+  fields:
+    label: Frontend
+    slug: frontend
