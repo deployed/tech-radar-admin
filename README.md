@@ -21,19 +21,32 @@ Follow these steps to set up the application locally:
    pip install -r requirements.txt
    ```
 
-3. **Migrate the Database**
+3. **Install pre-commis hooks**
+
+   ```bash
+      pre-commit install
+   ```
+
+4. **(Optional) Execute hooks on all files:**
+
+   ```bash
+      pre-commit run --all-files
+   ```
+
+5. **Migrate the Database**
 
    ```bash
    python manage.py migrate
    ```
 
-4. **Load Fixtures**
+6. **Load Fixtures**
 
    ```bash
    python manage.py loaddata fixtures/*.yaml
    ```
 
-5. **Run the Development Server**
+7. **Run the Development Server**
+
    ```bash
    python manage.py runserver
    ```

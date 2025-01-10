@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class RadarsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'techradar.radars'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "techradar.radars"
