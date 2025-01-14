@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Radar, Segment, Technology
+from techradar.radars.models import Radar, Segment, Technology
 
 
 class SegmentInline(admin.TabularInline):

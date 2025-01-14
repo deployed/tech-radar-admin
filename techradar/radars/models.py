@@ -1,5 +1,6 @@
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
+from django.utils.translation import gettext_lazy as _
 
 
 class Radar(models.Model):
@@ -20,16 +21,16 @@ class Segment(models.Model):
 
 
 class Ring(models.TextChoices):
-    ADOPT = "adopt"
-    HOLD = "hold"
-    ASSESS = "assess"
-    TRIAL = "trial"
+    ADOPT = "adopt", _("adopt")
+    HOLD = "hold", _("hold")
+    ASSESS = "assess", _("assess")
+    TRIAL = "trial", _("trial")
 
 
 class Technology(models.Model):
     label = models.CharField(max_length=50)
     slug = AutoSlugField(populate_from="label")
-    link = models.CharField(max_length=100)
+    link = models.URLField(max_length=150)
     segment = models.ForeignKey(Segment, on_delete=models.CASCADE, default=None)
     ring = models.CharField(max_length=7, choices=Ring.choices, default=Ring.ADOPT)
 
@@ -37,5 +38,5 @@ class Technology(models.Model):
         return self.slug
 
     class Meta:
-        verbose_name = "Technology"
-        verbose_name_plural = "Technologies"
+        verbose_name = _("Technology")
+        verbose_name_plural = _("Technologies")
