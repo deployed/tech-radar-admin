@@ -14,4 +14,4 @@ class SegmentAdmin(admin.ModelAdmin):
 
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
-    list_display = ("label", "slug", "link", "segment", "radar", "ring")
+    list_display = ("label", "slug", "link", "segment", "ring")

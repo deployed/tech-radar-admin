@@ -1,15 +1,18 @@
 - model: radars.segment
   pk: 1
   fields:
-    label: Frontend
-    slug: frontend
+    label: Mobile
+    slug: mobile
+    radar: 1
 - model: radars.segment
   pk: 2
   fields:
-    label: Mobile
-    slug: mobile
+    label: Frontend
+    slug: frontend
+    radar: 1
 - model: radars.segment
   pk: 3
   fields:
     label: Common
     slug: common
+    radar: 1
