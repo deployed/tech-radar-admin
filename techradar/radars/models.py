@@ -1,6 +1,7 @@
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
 from django.utils.translation import gettext_lazy as _
+from colorfield.fields import ColorField
 
 
 class Radar(models.Model):
@@ -15,6 +16,7 @@ class Segment(models.Model):
     label = models.CharField(max_length=20)
     slug = AutoSlugField(populate_from="label")
     radar = models.ForeignKey(Radar, on_delete=models.CASCADE, default=None)
+    color = ColorField(default="#FF0000")
 
     def __str__(self):
         return f"{self.slug} [{self.radar.slug}]"

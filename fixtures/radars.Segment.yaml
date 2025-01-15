@@ -1,0 +1,21 @@
+- model: radars.segment
+  pk: 1
+  fields:
+    label: Common
+    slug: common
+    radar: 1
+    color: '#16B969'
+- model: radars.segment
+  pk: 2
+  fields:
+    label: Mobile
+    slug: mobile
+    radar: 1
+    color: '#FF892E'
+- model: radars.segment
+  pk: 3
+  fields:
+    label: Frontend
+    slug: frontend
+    radar: 1
+    color: '#C42EFF'
