@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "colorfield",
+    "rest_framework",
 ] + PROJECT_APPS
 
 MIDDLEWARE = [
