@@ -5,7 +5,7 @@ from .models import Radar, Segment, Technology
 class TechnologySerializer(serializers.ModelSerializer):
     class Meta:
         model = Technology
-        fields = "__all__"
+        fields = ["label", "slug", "link", "ring"]
 
 
 class SegmentSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class SegmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Segment
-        fields = "__all__"
+        fields = ["label", "slug", "technology", "color"]
 
 
 class RadarSerializer(serializers.ModelSerializer):
@@ -21,4 +21,4 @@ class RadarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Radar
-        fields = "__all__"
+        fields = ["label", "slug", "segments"]

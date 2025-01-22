@@ -1,19 +1,12 @@
-from rest_framework.exceptions import NotFound
 from rest_framework import viewsets
 from .models import Radar
 from .serializers import RadarSerializer
+from django_filters import rest_framework as filters
+from .filters import RadarFilter
 
 
 class RadarViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Radar.objects.all()
     serializer_class = RadarSerializer
-
-    def get_queryset(self):
-        slug = self.request.query_params.get("slug", None)
-        if slug:
-            queryset = self.queryset.filter(slug=slug)
-            if not queryset.exists():
-                raise NotFound(detail="Radar with this slug not found.")
-            return queryset
-        else:
-            raise NotFound(detail="Slug parameter is missing.")
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = RadarFilter

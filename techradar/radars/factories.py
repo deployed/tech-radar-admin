@@ -1,20 +1,17 @@
 import factory.fuzzy
 from factory.django import DjangoModelFactory
-from faker import Faker
 from .models import Radar, Segment, Technology
-
-fake = Faker()
 
 
 class RadarFactory(DjangoModelFactory):
-    label = factory.LazyFunction(fake.word)
+    label = factory.Faker("word")
 
     class Meta:
         model = Radar
 
 
 class SegmentFactory(DjangoModelFactory):
-    label = factory.LazyFunction(fake.word)
+    label = factory.Faker("word")
     radar = factory.SubFactory(RadarFactory)
 
     class Meta:
@@ -22,7 +19,7 @@ class SegmentFactory(DjangoModelFactory):
 
 
 class TechnologyFactory(DjangoModelFactory):
-    label = factory.LazyFunction(fake.word)
+    label = factory.Faker("word")
     segment = factory.SubFactory(SegmentFactory)
 
     class Meta:
