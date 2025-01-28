@@ -13,8 +13,10 @@ class TestRadarViewSet:
         response = api_client.get(reverse("radar-list"))
 
         assert response.status_code == status.HTTP_200_OK
-        assert response.data[0]["slug"] == "frontend"
-        assert response.data[1]["slug"] == "backend"
+        assert response.json() == [
+            {"label": "Frontend", "slug": "frontend"},
+            {"label": "Backend", "slug": "backend"},
+        ]
 
     def test_get_proper_radar(self, api_client):
         radar = RadarFactory(label="Backend")
