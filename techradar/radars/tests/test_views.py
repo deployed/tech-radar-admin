@@ -22,7 +22,11 @@ class TestRadarViewSet:
         response = api_client.get(reverse("radar-detail", args=[radar.slug]))
 
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["slug"] == "backend"
+        assert response.json() == {
+            "label": "Backend",
+            "slug": "backend",
+            "segments": [],
+        }
 
     def test_slug_not_found(self, api_client):
         RadarFactory(label="Backend")
@@ -30,4 +34,4 @@ class TestRadarViewSet:
         response = api_client.get(reverse("radar-detail", args=["frontend"]))
 
         assert response.status_code == status.HTTP_404_NOT_FOUND
-        assert response.data["detail"] == "No Radar matches the given query."
+        assert response.json() == {"detail": "No Radar matches the given query."}
