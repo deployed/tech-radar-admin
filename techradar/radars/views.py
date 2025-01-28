@@ -1,12 +1,14 @@
 from rest_framework import viewsets
 from .models import Radar
-from .serializers import RadarSerializer
-from django_filters import rest_framework as filters
-from .filters import RadarFilter
+from .serializers import RadarListSerializer, RadarDetailSerializer
 
 
 class RadarViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Radar.objects.all()
-    serializer_class = RadarSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
-    filterset_class = RadarFilter
+    lookup_field = "slug"
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return RadarListSerializer
+        if self.action == "retrieve":
+            return RadarDetailSerializer

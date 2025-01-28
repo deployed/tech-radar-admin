@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "colorfield",
     "rest_framework",
-    "django_filters",
 ] + PROJECT_APPS
 
 MIDDLEWARE = [

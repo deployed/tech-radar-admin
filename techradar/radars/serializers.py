@@ -16,9 +16,15 @@ class SegmentSerializer(serializers.ModelSerializer):
         fields = ["label", "slug", "technology", "color"]
 
 
-class RadarSerializer(serializers.ModelSerializer):
+class RadarDetailSerializer(serializers.ModelSerializer):
     segments = SegmentSerializer(many=True, source="segment_set")
 
     class Meta:
         model = Radar
         fields = ["label", "slug", "segments"]
+
+
+class RadarListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Radar
+        fields = ["label", "slug"]
