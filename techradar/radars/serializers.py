@@ -27,4 +27,4 @@ class RadarDetailSerializer(serializers.ModelSerializer):
 class RadarListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Radar
-        fields = ["label", "slug"]
+        fields = ["label", "slug", "color"]
