@@ -18,7 +18,7 @@ Follow these steps to set up the application locally:
 2. **Install Required Packages**
 
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 
 3. **Install pre-commis hooks**
@@ -48,7 +48,7 @@ Follow these steps to set up the application locally:
 7. **Run the Development Server**
 
    ```bash
-   python manage.py runserver
+   uv run manage.py runserver
    ```
 
 ## Default Users
