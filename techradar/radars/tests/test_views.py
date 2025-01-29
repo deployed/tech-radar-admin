@@ -14,8 +14,8 @@ class TestRadarViewSet:
 
         assert response.status_code == status.HTTP_200_OK
         assert response.json() == [
-            {"label": "Frontend", "slug": "frontend"},
-            {"label": "Backend", "slug": "backend"},
+            {"label": "Frontend", "slug": "frontend", "color": "#FF0000"},
+            {"label": "Backend", "slug": "backend", "color": "#FF0000"},
         ]
 
     def test_get_proper_radar(self, api_client):
