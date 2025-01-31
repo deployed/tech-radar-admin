@@ -20,25 +20,25 @@ Follow these steps to set up the application locally:
 2. **Install pre-commis hooks**
 
    ```bash
-      pre-commit install
+      uv run pre-commit install
    ```
 
 3. **(Optional) Execute hooks on all files:**
 
    ```bash
-      pre-commit run --all-files
+      uv run pre-commit run --all-files
    ```
 
 4. **Migrate the Database**
 
    ```bash
-   python manage.py migrate
+   uv run python manage.py migrate
    ```
 
 5. **Load Fixtures**
 
    ```bash
-   python manage.py loaddata fixtures/*.yaml
+   uv run python manage.py loaddata fixtures/*.yaml
    ```
 
 6. **Run the Development Server**
