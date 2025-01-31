@@ -4,51 +4,47 @@ Follow these steps to set up the application locally:
 
 ## Prerequisites
 
-- Ensure you have Python 3.13 installed on your machine. If not, download and install it from [python.org](https://www.python.org/).
+- To use this project, you need to have `uv` installed. You can install it using the following command:
+   ```sh
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
 
 ## Steps to Set Up the Application
 
-1. **Create and Activate Virtual Environment**
+1. **Install Required Packages**
 
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   uv sync --locked
    ```
 
-2. **Install Required Packages**
+2. **Install pre-commis hooks**
 
    ```bash
-   pip install -r requirements.txt
+      uv run pre-commit install
    ```
 
-3. **Install pre-commis hooks**
+3. **(Optional) Execute hooks on all files:**
 
    ```bash
-      pre-commit install
+      uv run pre-commit run --all-files
    ```
 
-4. **(Optional) Execute hooks on all files:**
+4. **Migrate the Database**
 
    ```bash
-      pre-commit run --all-files
+   uv run python manage.py migrate
    ```
 
-5. **Migrate the Database**
+5. **Load Fixtures**
 
    ```bash
-   python manage.py migrate
+   uv run python manage.py loaddata fixtures/*.yaml
    ```
 
-6. **Load Fixtures**
+6. **Run the Development Server**
 
    ```bash
-   python manage.py loaddata fixtures/*.yaml
-   ```
-
-7. **Run the Development Server**
-
-   ```bash
-   python manage.py runserver
+   uv run manage.py runserver
    ```
 
 ## Default Users

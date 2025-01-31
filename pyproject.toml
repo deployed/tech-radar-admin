@@ -1,3 +1,25 @@
+[project]
+name = "tech-radar-deployed"
+description = "Tech Radar Deployed"
+requires-python="~=3.13"
+version = "0.1.0"
+readme="README.me"
+dependencies = [
+    "django>=5.1.4",
+    "django-colorfield>=0.11.0",
+    "django-extensions>=3.2.3",
+    "djangorestframework>=3.15.2",
+    "pyyaml>=6.0.2",
+]
+
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "techradar.settings"
 python_files = ["tests.py", "test_*.py", "*_test.py", "tests/test_*.py"]
+
+[dependency-groups]
+dev = [
+    "factory-boy>=3.3.1",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "pytest-django>=4.9.0",
+]
